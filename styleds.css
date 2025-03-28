@@ -16,6 +16,40 @@ body {
   border-radius: 10px;
 }
 
+.creator-info {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+}
+
+.creator-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.creator-details p {
+  margin: 0;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.creator-details a {
+  color: #7289DA;
+  text-decoration: none;
+}
+
+.creator-details a:hover {
+  text-decoration: underline;
+}
 h1 {
   font-size: 2.5rem;
 }
