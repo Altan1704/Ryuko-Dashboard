@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('https://cdn.discordapp.com/attachments/1354839025281798204/1354922189526138880/bright-pop-landscape-design.jpg?ex=67e70d1f&is=67e5bb9f&hm=7da03f61ac5477b1dfe15e113b0bc09bbf1b90a9dd954dfab4def3662438d561&') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+.dashboard {
+  text-align: center;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.7);
+  max-width: 800px;
+  margin: 100px auto;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.stars {
+  margin: 20px 0;
+}
+
+.stars span {
+  font-size: 2rem;
+  color: gray;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.stars span:hover,
+.stars span:hover ~ span {
+  color: gold;
+}
+
+.stars span.active {
+	color: gold;
+}
+
+#rating-display {
+  font-weight: bold;
+  color: gold;
+}
+
