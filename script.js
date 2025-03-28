@@ -1,63 +1,59 @@
 // Initialize reviews array
 const reviews = [];
 
+// Capture Selected Rating
+let selectedRating = 0;
+
 // Star Rating System
-document.querySelectorAll('.stars span').forEach(star => {
+document.querySelectorAll('.stars span').forEach((star) => {
   star.addEventListener('click', () => {
-    const starValue = star.getAttribute('data-star');
-    alert(`You rated ${starValue} star(s)!`);
+    selectedRating = parseInt(star.getAttribute('data-star'), 10); // Capture selected star rating
+    updateStars(selectedRating); // Highlight stars
   });
 });
 
-// Submit Review
-function submitReview() {
-  const reviewText = document.getElementById('review').value;
-  
-  if (reviewText.trim() === '') {
-    alert('Please write a review before submitting!');
-    return;
-  }
-
-  // Add review to list
-  reviews.push(reviewText);
-  updateReviews();
-
-  // Clear textarea
-  document.getElementById('review').value = '';
-}
-
-// Update Reviews Section
-function updateReviews() {
-  const reviewsList = document.getElementById('reviews-list');
-  reviewsList.innerHTML = reviews.map(review => `<li>${review}</li>`).join('');
+// Highlight Stars Based on Rating
+function updateStars(rating) {
+  document.querySelectorAll('.stars span').forEach((star) => {
+    const starValue = parseInt(star.getAttribute('data-star'), 10);
+    star.style.color = starValue <= rating ? 'gold' : 'gray'; // Highlight selected stars in gold
+  });
 }
 
 // Submit Review
 async function submitReview() {
   const reviewText = document.getElementById('review').value;
-  const rating = document.querySelectorAll('.stars span[style="color: gold;"]').length; // Count highlighted stars
 
-  if (!rating || reviewText.trim() === '') {
-    alert('Please provide a rating and review before submitting!');
+  // Validate Rating and Review
+  if (!selectedRating) {
+    alert('Please select a rating before submitting!');
     return;
   }
 
+  if (reviewText.trim() === '') {
+    alert('Please write a review before submitting!');
+    return;
+  }
+
+  // Add review to local reviews array (or send to backend)
   try {
     const response = await fetch('http://localhost:5000/add-review', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ rating, review: reviewText }),
+      body: JSON.stringify({ rating: selectedRating, review: reviewText }),
     });
 
     if (response.ok) {
       alert('Review submitted successfully!');
-      document.getElementById('review').value = '';
+      document.getElementById('review').value = ''; // Clear input
+      selectedRating = 0; // Reset selected rating
+      updateStars(selectedRating); // Reset stars
       fetchReviews(); // Update reviews section
     } else {
       alert('Error submitting review.');
     }
   } catch (error) {
-    console.error(error);
+    console.error('Error submitting review:', error);
   }
 }
 
@@ -69,7 +65,7 @@ async function fetchReviews() {
 
     const reviewsList = document.getElementById('reviews-list');
     reviewsList.innerHTML = reviews
-      .map(r => `<li>⭐ ${r.rating}: ${r.review}</li>`)
+      .map((r) => `<li>⭐ ${r.rating}: ${r.review}</li>`)
       .join('');
   } catch (error) {
     console.error('Error fetching reviews:', error);
