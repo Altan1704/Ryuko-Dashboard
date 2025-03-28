@@ -3,7 +3,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  /* Remove the extra trailing ampersand from the URL if not needed */
   background: url('https://cdn.discordapp.com/attachments/1354839025281798204/1354922189526138880/bright-pop-landscape-design.jpg?ex=67e70d1f&is=67e5bb9f&hm=7da03f61ac5477b1dfe15e113b0bc09bbf1b90a9dd954dfab4def3662438d561') no-repeat center center fixed;
   background-size: cover;
   color: white;
@@ -130,33 +129,6 @@ p {
 
 /* Display Rating */
 #rating-display {
-  font-weight: bold;
-  color: gold;
-}
-
-.ratings-display {
-  text-align: center;
-  margin: 30px 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.ratings-display h2 {
-  font-size: 1.5rem;
-  color: gold;
-}
-
-#ratings-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 10px 0;
-  color: white;
-  font-size: 1rem;
-}
-
-#average-rating {
   font-weight: bold;
   color: gold;
 }
