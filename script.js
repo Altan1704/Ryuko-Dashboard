@@ -1,38 +1,14 @@
-// Initialize Selected Rating
-let selectedRating = 0;
+// Initialize Ratings Array from Local Storage or Start Fresh
+const ratings = JSON.parse(localStorage.getItem('ratings')) || [];
 
-// Star Rating System
-document.querySelectorAll('.stars span').forEach((star) => {
-  star.addEventListener('click', () => {
-    selectedRating = parseInt(star.getAttribute('data-star'), 10); // Get selected star rating
-    updateStars(selectedRating); // Highlight stars
-    displayRating(selectedRating); // Update rating display
-  });
-});
-
-// Highlight Stars Based on Selected Rating
-function updateStars(rating) {
-  document.querySelectorAll('.stars span').forEach((star) => {
-    const starValue = parseInt(star.getAttribute('data-star'), 10);
-    star.classList.toggle('active', starValue <= rating); // Add or remove 'active' class
-  });
-}
-
-// Display Rating
-function displayRating(rating) {
-  document.getElementById('rating-display').textContent = rating; // Update rating display
-}
-
-// Initialize Ratings Array
-const ratings = [];
-
-// Function to Add Rating
+// Add a New Rating
 function addRating(rating) {
   ratings.push(rating);
-  updateRatingsDisplay(); // Update the displayed ratings
+  localStorage.setItem('ratings', JSON.stringify(ratings)); // Save to local storage
+  updateRatingsDisplay();
 }
 
-// Update Ratings Display Section
+// Update Ratings Display
 function updateRatingsDisplay() {
   const ratingsList = document.getElementById('ratings-list');
   const averageRating = document.getElementById('average-rating');
@@ -53,7 +29,7 @@ function updateRatingsDisplay() {
 document.querySelectorAll('.stars span').forEach((star) => {
   star.addEventListener('click', () => {
     const rating = parseInt(star.getAttribute('data-star'), 10);
-    addRating(rating); // Add rating to the list
+    addRating(rating); // Add rating to the array and save it
     updateStars(rating); // Highlight stars
     displayRating(rating); // Update selected rating display
   });
@@ -71,3 +47,6 @@ function updateStars(rating) {
 function displayRating(rating) {
   document.getElementById('rating-display').textContent = rating;
 }
+
+// Update the Display on Page Load
+updateRatingsDisplay();
