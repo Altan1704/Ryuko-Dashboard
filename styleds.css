@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('https://cdn.discordapp.com/attachments/1354839025281798204/1354922189526138880/bright-pop-landscape-design.jpg?ex=67e70d1f&is=67e5bb9f&hm=7da03f61ac5477b1dfe15e113b0bc09bbf1b90a9dd954dfab4def3662438d561&') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+.dashboard {
+  text-align: center;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.7);
+  max-width: 800px;
+  margin: 100px auto;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.add-button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 1rem;
+  text-decoration: none;
+  background-color: #7289DA;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.add-button:hover {
+  background-color: #5b6eb1;
+}
+
+/* Join Server Link */
+.join-server {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.server-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.server-link {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #7289DA;
+}
+
+.server-link:hover {
+  text-decoration: underline;
+}
+
+.creator-info {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+}
+
+.creator-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.creator-details p {
+  margin: 0;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.creator-details a {
+  color: #7289DA;
+  text-decoration: none;
+}
+
+.creator-details a:hover {
+  text-decoration: underline;
+}
+
+/* Rating System Styles */
+.rating-system {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.stars {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.stars span {
+  font-size: 2rem;
+  color: gray;
+  transition: color 0.3s ease;
+}
+
+.stars span:hover,
+.stars span:hover ~ span {
+  color: gold;
+}
+
+textarea {
+  width: 90%;
+  max-width: 500px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #7289DA;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5b6eb1;
+}
+
+#reviews-section {
+  margin-top: 20px;
+  text-align: left;
+}
+
+#reviews-list {
+  list-style-type: none;
+  padding: 0;
+}
